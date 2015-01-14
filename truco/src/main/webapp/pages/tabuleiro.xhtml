@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces - ShowCase</title>
+            </f:facet>
+
+            <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/default.css" />
+            <link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/screen.css" />
+            <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="40">
+                    
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="40">
+
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="40">
+                    
+                </p:layoutUnit>
+
+                <p:layoutUnit position="east" size="40">
+                
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+
+                    <p:layout>
+
+
+                        <p:layoutUnit position="south" size="100">
+                        </p:layoutUnit>
+
+
+                        <p:layoutUnit position="center" styleClass="mesa">
+                        	<div id="topo" style="text-align: center; min-height 300px;">
+                        		<h:graphicImage name="noCard.png" library="images" style="margin-top:15px; margin-bottom: 10px;" />
+                        	</div>
+                        	
+                        	<div id="meio" style="text-align: center; min-height 300px; position: static">
+	                        	
+	                        		<h:graphicImage name="noCard.png" library="images" style="margin-right: 70px" />
+	                        	
+	                        		<h:graphicImage name="noCard.png" library="images" style="margin-left: 70px" />
+	                        	
+                        	</div>
+                        	
+                        	<div id="rodape" style="text-align: center; margin-top: 15px;">
+                        		<h:graphicImage name="noCard.png" library="images" />
+                        	</div>
+                        	<div id="seuDeck" style="text-align: center; margin-top: 15px;">
+                        		<h:graphicImage name="cardBack.png" library="images" style="margin-right: 13px;" />
+                        		<h:graphicImage name="cardBack.png" library="images" />
+                        		<h:graphicImage name="cardBack.png" library="images" style="margin-left: 14px;" />
+                        	</div>
+                        </p:layoutUnit>
+
+                    </p:layout>
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+    
+</html>
