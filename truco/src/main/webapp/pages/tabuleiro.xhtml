@@ -2,9 +2,9 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:truco="http://java.sun.com/jsf/composite/components"
       xmlns:p="http://primefaces.org/ui">
 
-    <f:view contentType="text/html">
         <h:head>
             <f:facet name="first">
                 <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
@@ -17,10 +17,10 @@
             <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
         </h:head>
 
-        <h:body>
-
-            <p:layout fullPage="true">
-
+        <h:body>     
+        	<h:form id="form">   	
+            <p:layout fullPage="true" id="mesa">
+				
                 <p:layoutUnit position="north" size="40">
                     
                 </p:layoutUnit>
@@ -47,6 +47,7 @@
 
 
                         <p:layoutUnit position="center" styleClass="mesa">
+                        	
                         	<div id="topo" style="text-align: center; min-height 300px;">
                         		<h:graphicImage name="noCard.png" library="images" style="margin-top:15px; margin-bottom: 10px;" />
                         	</div>
@@ -60,13 +61,24 @@
                         	</div>
                         	
                         	<div id="rodape" style="text-align: center; margin-top: 15px;">
-                        		<h:graphicImage name="noCard.png" library="images" />
+                        		<truco:carta carta="#{tabuleiroController.partida.mao.getCartaJogada(tabuleiroController.jogador)}" />
                         	</div>
+                        	
                         	<div id="seuDeck" style="text-align: center; margin-top: 15px;">
-                        		<h:graphicImage name="cardBack.png" library="images" style="margin-right: 13px;" />
-                        		<h:graphicImage name="cardBack.png" library="images" />
-                        		<h:graphicImage name="cardBack.png" library="images" style="margin-left: 14px;" />
+                        	
+                        		<truco:carta carta="#{tabuleiroController.jogador.cartas[0]}" onClick="#{tabuleiroController.jogarCarta(0)}" update=":#{cc.clientId}:mesa" />
+                        	
+                        		<truco:carta carta="#{tabuleiroController.jogador.cartas[1]}" onClick="#{tabuleiroController.jogarCarta(1)}" update="" />
+                        		
+                        		<truco:carta carta="#{tabuleiroController.jogador.cartas[2]}" onClick="#{tabuleiroController.jogarCarta(2)}" update="" />                        		
+                        		
                         	</div>
+                        	<div style="text-align: center; margin-top: 15px;">
+                        		<p:inputText value="#{tabuleiroController.jogador.nome}" />
+                        		<p:commandButton value="Iniciar" actionListener="#{tabuleiroController.iniciarPartida()}" ajax="false" style="margin-left: 4px;" update="mesa" partialSubmit="false" />
+                        	</div>
+                        	
+                        	
                         </p:layoutUnit>
 
                     </p:layout>
@@ -74,9 +86,9 @@
                 </p:layoutUnit>
 
             </p:layout>
+            </h:form>
 
         </h:body>
 
-    </f:view>
     
 </html>

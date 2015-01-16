@@ -51,4 +51,10 @@ public class Jogador implements Serializable {
         this.cartas = cartas;
     }
 
+    public void recebeMao(final Carta carta1, final Carta carta2, final Carta carta3) {
+        carta1.setJogador(this);
+        carta2.setJogador(this);
+        carta3.setJogador(this);
+        this.cartas = new Carta[] {carta1, carta2, carta3};
+    }
 }

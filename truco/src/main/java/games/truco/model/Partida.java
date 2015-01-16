@@ -3,9 +3,9 @@
  */
 package games.truco.model;
 
-import java.util.UUID;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
 /**
  * @author raphael.pinheiro
@@ -15,6 +15,9 @@ public class Partida {
 
     private Jogador[] jogadores;
 
+    @Inject
+    private Mao mao;
+
     @PostConstruct
     public void init() {
         jogadores = new Jogador[4];
@@ -22,22 +25,20 @@ public class Partida {
 
     public boolean entrar(final Jogador jogador) {
         for (int i = 0; i < jogadores.length; i++) {
-            if (jogadores[i] == null) {
-                jogadores[i] = jogador;
-                return true;
-            }
+            // if (jogadores[i] == null) {
+            jogadores[i] = jogador;
+            return true;
+            // }
         }
         return false;
     }
 
     public void iniciar() {
-        for (int i = 0; i < jogadores.length; i++) {
-            if (jogadores[i] == null) {
-                Jogador j = new JogadorBot();
-                j.setNome("Bot" + UUID.randomUUID().toString().substring(0, 3));
-                jogadores[i] = j;
-            }
-        }
+        mao.iniciaMao(jogadores);
+    }
+
+    public Mao getMao() {
+        return mao;
     }
 
 }

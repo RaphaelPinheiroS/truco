@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:truco="http://java.sun.com/jsf/composite/components"
+      xmlns:p="http://primefaces.org/ui">
+
+        <h:head>
+            <f:facet name="first">
+                <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <meta name="viewport" content="height=device-height" />
+                <title>PrimeFaces - ShowCase</title>
+            </f:facet>
+
+            <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/default.css" />
+            <link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/screen.css" />
+            <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+        </h:head>
+
+        <h:body style="height: 100% !important; min-height: 100% !important;">     
+        	<h:form id="form" styleClass="mesa" style="width: 100% !important; ">   	
+               	
+               	<div id="topo" style="text-align: center; ">
+               		<h:graphicImage name="noCard.png" library="images" style="margin-top:15px;" />
+               	</div>
+               	
+               	<div id="meio" style="text-align: center; min-height 300px; position: static">
+                	
+                		<h:graphicImage name="noCard.png" library="images" style="margin-right: 70px" />
+                	
+                		<h:graphicImage name="noCard.png" library="images" style="margin-left: 70px" />
+                	
+               	</div>
+               	
+               	<div id="rodape" style="text-align: center; ">
+               		<truco:carta carta="#{tabuleiroController.cartaJogada}" />
+               	</div>
+               	
+               	<div id="seuDeck" style="text-align: center;">
+               	
+               		<truco:carta carta="#{tabuleiroController.jogador.cartas[0]}" onClick="#{tabuleiroController.jogarCarta(0)}" update=":#{cc.clientId}:mesa" />
+               	
+               		<truco:carta carta="#{tabuleiroController.jogador.cartas[1]}" onClick="#{tabuleiroController.jogarCarta(1)}" update="" />
+               		
+               		<truco:carta carta="#{tabuleiroController.jogador.cartas[2]}" onClick="#{tabuleiroController.jogarCarta(2)}" update="" />                        		
+               		
+               	</div>
+               	<div style="text-align: center; padding-top: 10px;">
+               		<p:inputText value="#{tabuleiroController.jogador.nome}" />
+               		<p:commandButton value="Iniciar" actionListener="#{tabuleiroController.iniciarPartida()}" ajax="false" style="margin-left: 4px;" update="mesa" partialSubmit="false" />
+               	</div>
+                        
+            </h:form>
+
+        </h:body>
+
+    
+</html>

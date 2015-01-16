@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+	<composite:attribute name="carta" required="false" type="games.truco.model.Carta" />
+	<composite:attribute name="onClick" method-signature="void listener()" required="false" shortDescription="Listener para click" />
+	<composite:attribute name="update" required="false" type="java.lang.String" default="" />
+</composite:interface>
+
+<composite:implementation>
+	<p:commandLink actionListener="#{cc.attrs.onClick}" update="#{cc.attrs.update}" ajax="false">
+		<h:graphicImage  rendered="#{not empty cc.attrs.carta}" name="card_#{cc.attrs.carta.naipe()}.png" library="images" style="margin-right: 13px;">
+			<span class="cardLabel #{cc.attrs.carta.red ? 'cardRed' : ''}">#{cc.attrs.carta.valor().asString()}</span>
+			<span class="cardRotateLabel #{cc.attrs.carta.red ? 'cardRed' : ''}">#{cc.attrs.carta.valor().asString()}</span>
+		</h:graphicImage>
+	</p:commandLink>
+	<h:graphicImage rendered="#{empty cc.attrs.carta}" name="noCard.png" library="images" style="margin-right: 13px; padding-top: 1px;" />		
+</composite:implementation>
+</html>

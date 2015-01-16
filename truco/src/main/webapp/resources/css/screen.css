@@ -204,3 +204,29 @@ input {
 .mesa div {
 	background: #5FAC2B;
 }
+
+.cardLabel {
+	float: left;
+	padding-left: 4px;
+	padding-top: 2px;
+	position: absolute;
+	font-family: Lucida Console;
+	font-size: 30px;
+
+}
+
+.cardRed {
+	color: #D41235;
+}
+
+.cardRotateLabel {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	float: left;
+	padding-right: 83px;
+	padding-bottom: 120px;
+	position: absolute;
+	font-family: Lucida Console;
+	font-size: 30px;
+}

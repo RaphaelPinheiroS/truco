@@ -22,7 +22,7 @@ public class Baralho {
 
     @PostConstruct
     public void initBaralho() {
-        cartas = new Carta[44];
+        cartas = new Carta[40];
         int i = 0;
         for (Naipe naipe : Naipe.values()) {
             for (Valor valor : Valor.values()) {
