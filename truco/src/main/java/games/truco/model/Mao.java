@@ -135,6 +135,8 @@ public class Mao implements Serializable {
     }
 
     public boolean jogaCarta(final Carta carta) {
+        // TODO remover clear
+        cartasJogadas.clear();
         if (carta.getJogador().equals(jogadores[indexProximoJogador])) {
             cartasJogadas.add(carta);
             return true;
